@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-2/3 bg-slate-700 min-h-fit p-8 rounded-md ml-12"
+    class="w-2/3 bg-slate-700 min-h-full p-8 rounded-md ml-12"
     v-if="notebook._id"
   >
     <select-endpoint :notebook="notebook" />

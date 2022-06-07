@@ -1,23 +1,29 @@
 <template>
-  <div class="bg-slate-900 h-20 w-full flex flex-row items-center">
-    <img src="./assets/lightning.png" class="h-20" />
-    <span
-      class="p-1 px-2 text-blue-400 text-lg tracking-wider uppercase ml-12 cursor-pointer hover:bg-sky-800 transition-all duration-700 rounded-md hover:text-blue-200"
-    >
-      Notebooks
-    </span>
-    <span
-      class="p-1 px-2 text-blue-400 text-lg tracking-wider uppercase ml-12 cursor-pointer hover:bg-sky-800 transition-all duration-500 rounded-md hover:text-blue-200"
-    >
-      Documentation
-    </span>
-    <span
-      class="p-1 px-2 text-blue-400 text-lg tracking-wider uppercase ml-12 cursor-pointer hover:bg-sky-800 transition-all duration-500 rounded-md hover:text-blue-200"
-    >
-      About
-    </span>
+  <div class="">
+    <div class="bg-slate-900 h-20 w-full flex flex-row items-center">
+      <router-link to="/">
+        <img src="./assets/lightning.png" class="h-20" />
+      </router-link>
+      <router-link :to="{ name: 'NotebookList' }">
+        <span
+          class="p-1 px-2 text-blue-400 text-lg tracking-wider uppercase ml-12 cursor-pointer hover:bg-sky-800 transition-all duration-700 rounded-md hover:text-blue-200"
+        >
+          Notebooks
+        </span>
+      </router-link>
+      <span
+        class="p-1 px-2 text-blue-400 text-lg tracking-wider uppercase ml-12 cursor-pointer hover:bg-sky-800 transition-all duration-500 rounded-md hover:text-blue-200"
+      >
+        Documentation
+      </span>
+      <span
+        class="p-1 px-2 text-blue-400 text-lg tracking-wider uppercase ml-12 cursor-pointer hover:bg-sky-800 transition-all duration-500 rounded-md hover:text-blue-200"
+      >
+        About
+      </span>
+    </div>
+    <router-view />
   </div>
-  <router-view />
 </template>
 
 <script>

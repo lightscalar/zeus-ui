@@ -1,9 +1,9 @@
 <template>
-  <div class='flex flex-col'>
-  <div class="flex flex-row mt-12 px-12 min-h-96" v-if='notebook._id'>
-    <notebook-summary :notebook="notebook" />
-    <notebook-documentation :notebook="notebook"/>
-  </div>
+  <div class="flex flex-col min-h-screen">
+    <div class="flex flex-row mt-12 px-12 min-h-96" v-if="notebook._id">
+      <notebook-summary :notebook="notebook" />
+      <notebook-documentation :notebook="notebook" />
+    </div>
   </div>
 </template>
 
@@ -31,8 +31,8 @@ export default {
 
   computed: {
     notebook() {
-      return this.$store.state.notebooks.notebook
-    }
+      return this.$store.state.notebooks.notebook;
+    },
   },
 
   created() {},

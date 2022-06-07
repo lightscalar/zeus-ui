@@ -1,6 +1,15 @@
 <template>
   <div class="">
-    <line-summary fieldname="Endpoint Location" :value="url" />
+    <line-summary
+      v-if="notebook.is_deployed"
+      fieldname="Endpoint Location"
+      :value="url"
+    />
+    <line-summary
+      v-else
+      fieldname="Endpoint Location"
+      value="NOT DEPLOYED"
+    />
     <line-summary
       v-for="(data, k) in required_data"
       fieldname="Required Data"
@@ -118,6 +127,9 @@ export default {
     url() {
       let base = "http://127.0.0.1";
       let port = this.notebook.port_number;
+      if (port < 0) {
+        port = 'PORT'
+      }
       let endpointName = this.notebook.endpoints[this.endpointIndex].name;
       let url = base + ":" + port + "/" + endpointName;
       return url;

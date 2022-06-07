@@ -7,7 +7,7 @@ const toast = useToast();
 const state = {
   notebooks: [],
   notebook: {},
-  endpointIndex: -1
+  endpointIndex: -1,
 };
 
 const getters = {};
@@ -18,8 +18,12 @@ const mutations = {
   },
 
   setEndpoint(state, endpointIndex) {
-    state.endpointIndex = endpointIndex
-  }
+    state.endpointIndex = endpointIndex;
+  },
+
+  setNotebookList(state, notebooks) {
+    state.notebooks = notebooks;
+  },
 };
 
 const actions = {
@@ -43,15 +47,47 @@ const actions = {
 
   async getNotebook(context, notebookId) {
     try {
-    let endpoint = "notebooks/" + notebookId;
-    let resp = await callServer("get", endpoint);
-    context.commit("setCurrentNotebook", resp.data);
-    } catch(err) {
-      console.log(err.message)
-      toast.error(err.message)
+      let endpoint = "notebooks/" + notebookId;
+      let resp = await callServer("get", endpoint);
+      context.commit("setCurrentNotebook", resp.data);
+    } catch (err) {
+      console.log(err.message);
+      toast.error(err.message);
     }
+  },
 
-  }
+  async listNotebooks(context) {
+    try {
+      let endpoint = "notebooks/";
+      let resp = await callServer("get", endpoint);
+      context.commit("setNotebookList", resp.data);
+    } catch (err) {
+      console.log(err.message);
+      toast.error(err.message);
+    }
+  },
+
+  async pause(context, notebookId) {
+    try {
+      let endpoint = "notebooks/" + notebookId + "/pause";
+      let resp = await callServer("get", endpoint);
+      context.commit("setCurrentNotebook", resp.data);
+    } catch (err) {
+      console.log(err.message);
+      toast.error(err.message);
+    }
+  },
+
+  async launch(context, notebookId) {
+    try {
+      let endpoint = "notebooks/" + notebookId + "/launch";
+      let resp = await callServer("get", endpoint);
+      context.commit("setCurrentNotebook", resp.data);
+    } catch (err) {
+      console.log(err.message);
+      toast.error(err.message);
+    }
+  },
 };
 
 export default {
