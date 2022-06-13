@@ -7,7 +7,7 @@
         v-model="searchTerm"
       />
 
-      <router-link to="/">
+      <router-link to="/upload-notebooks">
         <button
           class="text-blue-400 border border-blue-400 bg-slate-800 w-72 p-4 pt-2 hover:bg-sky-700 hover:text-slate-200 transition-all duration-700 rounded-md"
         >

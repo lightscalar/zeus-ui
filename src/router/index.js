@@ -1,13 +1,13 @@
 import { createWebHashHistory, createRouter } from "vue-router";
-import FrontPage from "../components/Zeus/FrontPage.vue";
+import UploadNotebook from "../components/Zeus/UploadNotebook.vue";
 import NotebookOverview from "../components/Zeus/NotebookOverview.vue";
 import NotebookList from "../components/Zeus/NotebookList.vue";
 
 const routes = [
   {
-    path: "/",
-    name: "FrontPage",
-    component: FrontPage,
+    path: "/upload-notebook",
+    name: "UploadNotebook",
+    component: UploadNotebook,
   },
   {
     path: "/notebooks",
